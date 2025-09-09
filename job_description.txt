@@ -1,0 +1,71 @@
+Company: Sigma
+Role: Technical Support Manager 
+Location: New York, NY
+Salary: $130K/yr - $160K/yr
+On-site
+Full-time
+
+About the role:
+
+We are looking for a technically skilled, self-motivated, customer-focused manager to lead a team of high energy Support Engineers. In this role you will be responsible for hiring, developing and mentoring team members as well as delivering against key performance metrics. You'll lead process improvements for customer and partner growth, retention, and excellence, while fostering individual contributions and driving cross-functional projects that spark innovation and collaboration. You need to be comfortable working in a fast paced environment and continuously challenge the team to step outside their comfort zone.
+
+What You Will Be Doing:
+
+Become a product expert. We are a data driven group and expect you to become fully proficient in Sigma. 
+Lead a team of exceptional product experts providing the Sigma user base with an excellent customer experience. 
+Hire, develop and train a strong team of Support Engineers on an ongoing basis. 
+Collaborate with cross-functional groups - Engineering, Design, Product, Customer Success, Sales and Marketing ensuring delivery of a great customer experience.
+Manage and develop a strategy toward key metrics: CSAT, Initial Response (IR), SLA, Time to Resolution (TTR).
+Continuously refine processes to optimize efficiency, elevating customer support operations.
+Uncover golden insights within Support data, translating them into actionable strategies for continuous improvement.
+Develop a reputation for excellence, high credibility and integrity with peers across the org. 
+
+
+Qualifications We Are Looking For:
+
+5+ years of industry experience supporting data platforms in an enterprise environment and 2+ years in a people management role. 
+Computer Science fundamentals. Strong domain expertise in databases and business intelligence.
+Comfortable with CDW environment/concepts.
+Proficient in SQL and data modeling concepts.
+A proven track record of building trust with customers and bringing issues to resolution quickly.
+Are curious, love to learn and to dig into new technologies and can pick them up quickly.
+Excellent verbal and written communication skills.
+
+
+Highly Desirable Skills & Experiences:
+
+Managed a team supporting a SaaS product.
+Experience working with Snowflake, Redshift, BigQuery.
+Knowledge of GCP, AWS.
+Startup experience.
+
+
+Additional Job Details:
+
+The base salary range for this position is $130k - $160k annually.
+
+Compensation may vary outside of this range depending on a number of factors, including a candidate’s qualifications, skills, competencies and experience. Base pay is one part of the Total Package that is provided to compensate and recognize employees for their work at Sigma Computing. This role is eligible for stock options, as well as a comprehensive benefits package.
+
+Sigma is the only cloud analytics and business intelligence tool empowering business teams to break free from the confines of the dashboard, explore data for themselves, and make better, faster decisions. The award-winning software was built to capitalize on the performance power of cloud data warehouses to combine data sources and analyze billions of rows of data instantly via an intuitive, spreadsheet-like interface – no coding required.
+
+Since launching with its unique interface, Sigma Computing has added features such as collaboration tools and embedded analytics capabilities. The most recent product launch included a set of AI tools such as forecasting capabilities, an AI copilot and a notebook interface for users who prefer a code-first environment.
+
+Sigma announced its $200M in Series D financing in May 2024, to continue transforming BI through its innovations in AI infrastructure, data application development, enterprise-wide collaboration, and business user adoption. Spark Capital and Avenir Growth Capital co-led the Series D funding round, with additional participation from a group of past investors including Snowflake Ventures and Sutter Hill Ventures.The Series D funding, raised at a valuation 60% higher than the company’s Series C round three years ago, promises to further accelerate Sigma’s growth.
+
+Come join us!
+
+Benefits For Our Full-Time Employees:
+
+Equity
+Generous health benefits
+Flexible time off policy. Take the time off you need!
+Paid bonding time for all new parents
+Traditional and Roth 401k
+Commuter and FSA benefits
+Lunch Program
+Dog friendly office
+
+
+Sigma Computing is an equal opportunity employer. We are committed to building a smart and strong team regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender, gender identity or expression, or veteran status. We look forward to learning how your experience can enable all of us to grow.
+
+Note: We have an in-office work environment in all our offices in SF, NYC, and London.

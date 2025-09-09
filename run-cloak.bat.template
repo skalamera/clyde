@@ -1,0 +1,14 @@
+@echo off
+echo Setting environment variables...
+set AZURE_SPEECH_KEY=YOUR_AZURE_SPEECH_KEY_HERE
+set AZURE_SPEECH_REGION=eastus
+set OPENAI_API_KEY=YOUR_OPENAI_API_KEY_HERE
+set GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+
+echo Environment variables set. Starting Cloak...
+echo AZURE_SPEECH_KEY: %AZURE_SPEECH_KEY:~0,10%...
+echo AZURE_SPEECH_REGION: %AZURE_SPEECH_REGION%
+echo OPENAI_API_KEY: %OPENAI_API_KEY:~0,10%...
+
+dotnet run --project Cloak.App
+pause

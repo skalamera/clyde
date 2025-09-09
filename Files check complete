@@ -1,0 +1,10 @@
+[33m3cfc9d1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m chore: remove azure.txt configuration file to enhance security and streamline service management, transitioning to environment variable-based key loading
+[33m7c06954[m refactor: remove .gitignore and local secrets example, enhance MainWindow.xaml and MainWindow.xaml.cs for improved service management and error handling
+[33m226e5d4[m[33m ([m[1;31morigin/main[m[33m)[m chore: scrub secrets, add secrets loader and ignore
+[33m67cbfb9[m Remove azure.txt configuration file and refactor Azure Speech service initialization in MainWindow.xaml.cs to load keys from environment variables or local secrets. Replace hardcoded keys with a placeholder service for improved security and maintainability. Enhance dispatcher calls for UI updates and implement cleanup logic on window closing.
+[33m455be32[m Refactor audio capture and transcription services: remove unused profile service, enhance error handling in loopback capture, and streamline suggestion logic in assistant services. Update Azure configuration keys and add additional text files to project output.
+[33m9255cc1[m Gate OpenAI Whisper behind OPENAI_STT=on env; default back to Azure for speed
+[33m8ef0226[m Whisper chunking: 2s windows, dequeue exact chunk, RMS silence gate, set language=en
+[33m2d61086[m Add OpenAI Whisper STT service and dual mic/loopback connections with test key fallback
+[33md6a2270[m Fix namespace import for PhraseList
+[33m27c19d8[m Improve ASR accuracy: enable PhraseList bias with domain terms

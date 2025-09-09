@@ -1,0 +1,104 @@
+Stephen Skalamera
++1 (443) 624-1226
+skalamera@gmail.com
+New York, NY, USA
+linkedin.com/in/skalamera
+
+____________________________________________________________________
+
+PROFESSIONAL SUMMARY
+
+Experienced Support Leader adept at optimizing workflows, driving efficiency through API integrations and AI-driven analytics, and enhancing customer satisfaction across the entire customer journey. Proven leader in team building and managing high-performing hybrid teams, consistently improving response and resolution times, and reducing operational costs. Possesses strong analytical skills for translating complex data into clear insights for business performance.
+
+____________________________________________________________________
+
+PROFESSIONAL EXPERIENCE
+
+Benchmark Education Company	
+New Rochelle, NY, USA
+Lead, Customer Technical Support & Support Operations	
+March 2022 - Present
+	
+- Led a hybrid team of 15 support agents, consistently exceeding KPIs and SLAs, and supervised an offshore vendor team of 5 while reporting directly to the Director of Technology. Focused on team building to foster a collaborative and high-achieving environment.
+- Automated workflows and reduced resolution time by 38% through custom API integrations (Freshdesk, Zendesk, RingCentral, and others), demonstrating strong problem-solving skills with keen attention to detail.
+- Improved first response time by 45% and reduced average handling time by 32% using AI-powered analytics tools, templated responses, and guided workflows, significantly enhancing the customer journey, as evidenced by maintaining a CSAT score above 98% each year.
+- Spearheaded content creation for internal tools, building and launching an in-house custom ticketing application and an AI performance review platform, resulting in significant cost savings and department-wide adoption achieved through cross-functional collaboration.
+- Created a Power BI Support Operations Hub with Python integrations and engineered real-time call queue monitoring and Freshdesk integration with RingCentral API to consolidate metrics and improve efficiency, delivering clear business performance communication.
+- Led user insights integration across depts, collaborating with cross-functional teams to align customer journey mapping, prioritize backlogs, and drive goals.
+
+BuildingLink	
+New York, NY, USA
+Lead, Technical Support & Training	
+October 2019 - March 2022
+	
+- Hosted on-site and remote training sessions on our platform to property management companies across the country.
+- Translated user feedback and insights into actionable bug reports and feature requests for development teams.
+- Managed a team in adopting a new support ticketing system (Freshdesk).
+- Assisted with the redesign of the company's help site for enhanced user-friendliness, modernity, and robustness.
+ 
+1010data	
+New York, NY, USA
+Customer Experience Manager
+April 2016 - August 2019
+
+- Monitored, reviewed, and delivered Customer Experience staff’s KPIs weekly to upper management, including spot checking support tickets.
+- Managed the interviewing, hiring, training, and expansion of the Customer Experience Team as one of the initial team members and a team leader.
+- Managed all customer inquiries, and interactions on platform, excelling in conflict resolution to ensure positive customer outcomes.
+- Constructed the Knowledge Base from the ground up within Confluence, creating a comprehensive resource for customer support.
+ 
+Lytx	
+San Diego, CA, USA
+Senior Technical Support Engineer - Tier 3	
+July 2014 - April 2016
+	
+- Elevated and managed Tech Support incidents as the main point of escalation for the Tier 3 Tech Support team, ensuring prompt resolution for customers.
+- Confirmed and documented technical issues, delivering rapid and effective technical solutions.
+- Utilized basic SQL query language to troubleshoot and query large databases.
+- Interfaced with infrastructure, databases, QA, and development teams as required to address customer issues.
+ 
+ICANotes	
+Annapolis, MD, USA
+Senior Technical Support Specialist	
+February 2013 - July 2014
+	
+- Provided prompt technical support for Electronic Medical Records software, addressing customer inquiries via phone, email, and live chat.
+- Effectively communicated feature requests and bug reports from customers and QA testing to the development team.
+- Engaged in a role within the Maintenance team, deploying bi-weekly program updates across 50+ virtual servers.
+
+____________________________________________________________________
+
+PROJECTS
+
+Jedana AI - Jedana AI is my spare-time project: a suite of AI-powered tools for support operations. It focuses on support analytics, agent/team performance, and customer health, enabling Support leaders to:
+
+- Automate ticket quality assurance for better agent coaching. AI analyzes interactions, provides detailed insights, and offers skill assessments with customizable AI-suggested ratings.
+- View real-time sentiment analysis and KPIs to track customer satisfaction, with AI-generated recommendations for CX improvement.
+- Create custom weighted metrics to analyze, normalize, and rank agent performance across channels, providing detailed AI-generated performance reviews.
+
+____________________________________________________________________
+
+SKILLS
+
+Leadership & Operations: Team Leadership, Customer Experience Analytics, Cross-Functional Collaboration, Customer Journey Mapping, Performance Management, Escalation Management, Process Improvement, Data Analysis, Conflict Resolution
+
+Technical: Power BI, Python, REST APIs, SQL, Salesforce, Microsoft Excel, Freshdesk/Zendesk, Microsoft Azure, JIRA, HTML/CSS, AI tools
+
+____________________________________________________________________
+
+CERTIFICATIONS
+
+- Career Essentials in Generative AI | Issuer: Microsoft | Issued Date: July 2023
+- Career Essentials in Data Analysis | Issuer: Microsoft | Issued Date: July 2023
+- Career Essentials in Project Management | Issuer: Microsoft | Issued Date: July 2023
+- Freshdesk Product Expert | Issuer: Freshworks | Issued Date: July 2023
+- Customer Service Professional Certificate| Issuer: Zendesk | Issued Date: July 2023
+____________________________________________________________________
+
+EDUCATION
+
+University of Maryland - Baltimore County	
+Bachelor's, Economics
+September 2005 - May 2010
+
+
+

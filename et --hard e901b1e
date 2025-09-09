@@ -1,0 +1,8 @@
+[33m944be37[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Modernize UI with chat-like interface and contemporary styling
+[33m024a2f1[m Remove files containing API keys and add templates
+[33m4b8d34e[m Refactor configuration handling for API keys
+[33mb4442d8[m Add debug logging to diagnose environment variable loading
+[33me901b1e[m[33m ([m[1;31morigin/master[m[33m)[m Revert to using environment variables directly
+[33m9e83950[m Add configuration system to read API keys from local.secrets.json
+[33mfebb3fd[m Fix disposal race condition and improve error handling
+[33m8c243e4[m Initial commit - clean repository without secrets

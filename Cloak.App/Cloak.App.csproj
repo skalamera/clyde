@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Cloak.App</AssemblyName>
+    <RootNamespace>Cloak.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cloak.Services\Cloak.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\additional_details.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>additional_details.txt</Link>
+    </Content>
+    <Content Include="..\resume.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>resume.txt</Link>
+    </Content>
+    <Content Include="..\job_description.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>job_description.txt</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\clyde.svg" />
+  </ItemGroup>
+
+</Project>
+

@@ -1,0 +1,13 @@
+Write-Host "Setting environment variables..." -ForegroundColor Yellow
+$env:AZURE_SPEECH_KEY = "YOUR_AZURE_SPEECH_KEY_HERE"
+$env:AZURE_SPEECH_REGION = "eastus"
+$env:OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE"
+$env:GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
+
+Write-Host "Environment variables set. Starting Cloak..." -ForegroundColor Green
+Write-Host "AZURE_SPEECH_KEY: $($env:AZURE_SPEECH_KEY.Substring(0,10))..." -ForegroundColor Cyan
+Write-Host "AZURE_SPEECH_REGION: $env:AZURE_SPEECH_REGION" -ForegroundColor Cyan
+Write-Host "OPENAI_API_KEY: $($env:OPENAI_API_KEY.Substring(0,10))..." -ForegroundColor Cyan
+
+Write-Host "`nStarting application with debug output..." -ForegroundColor Yellow
+dotnet run --project Cloak.App

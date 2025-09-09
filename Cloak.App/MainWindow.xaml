@@ -1,0 +1,828 @@
+<Window x:Class="Cloak.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:selectors="clr-namespace:Cloak.App.Selectors"
+        Title="Clyde - AI Interview Assistant" Height="900" Width="1400" WindowStartupLocation="CenterScreen"
+        Background="#0A0A0A">
+    
+    <Window.Resources>
+        <!-- Modern Tech Color Palette -->
+        <SolidColorBrush x:Key="PrimaryBg" Color="#0A0A0A"/>
+        <SolidColorBrush x:Key="SecondaryBg" Color="#1A1A1A"/>
+        <SolidColorBrush x:Key="AccentBg" Color="#2A2A2A"/>
+        <SolidColorBrush x:Key="CardBg" Color="#1F1F1F"/>
+        <SolidColorBrush x:Key="GhostOrange" Color="#FF220F"/>
+        <SolidColorBrush x:Key="GhostBlue" Color="#0000C4"/>
+        <SolidColorBrush x:Key="GhostWhite" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="GhostYellow" Color="#FEEA4D"/>
+        <SolidColorBrush x:Key="TechTeal" Color="#00DBA7"/>
+        <SolidColorBrush x:Key="TextPrimary" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextSecondary" Color="#E0E0E0"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#A0A0A0"/>
+
+        <!-- Retro Gaming Font Styles -->
+        <Style x:Key="RetroTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Consolas, 'Courier New', monospace"/>
+            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style x:Key="RetroText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Consolas, 'Courier New', monospace"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <!-- Retro Square Button Style -->
+        <Style x:Key="FuturisticButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource GhostOrange}"/>
+            <Setter Property="Foreground" Value="{StaticResource GhostWhite}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="FontFamily" Value="Consolas, 'Courier New', monospace"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="ButtonBorder"
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="6"
+                                BorderThickness="0"
+                                Padding="{TemplateBinding Padding}">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#FF9500" Opacity="0.4" ShadowDepth="2" BlurRadius="6"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"
+                                            TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#FFB333"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#E6850E"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#666666"/>
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource FuturisticButton}">
+            <Setter Property="Background" Value="{StaticResource GhostBlue}"/>
+            <Setter Property="Padding" Value="18,10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="ButtonBorder"
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="6"
+                                BorderThickness="0"
+                                Padding="{TemplateBinding Padding}">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#0066FF" Opacity="0.4" ShadowDepth="2" BlurRadius="6"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"
+                                            TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#3385FF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#0052CC"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#666666"/>
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Pac-Man ComboBox Style -->
+        <Style x:Key="FuturisticComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="{StaticResource AccentBg}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GhostOrange}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton" 
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Focusable="False"
+                                        IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                        ClickMode="Press">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border Background="{TemplateBinding Background}" 
+                                               BorderBrush="{TemplateBinding BorderBrush}"
+                                               BorderThickness="{TemplateBinding BorderThickness}"
+                                               CornerRadius="6">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="20"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Grid.Column="0" Margin="12,8"/>
+                                                <Path Grid.Column="1" 
+                                                     HorizontalAlignment="Center" 
+                                                     VerticalAlignment="Center"
+                                                     Data="M 0 0 L 4 4 L 8 0 Z" 
+                                                     Fill="{StaticResource GhostOrange}"/>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                                            IsHitTestVisible="False"
+                                            Content="{TemplateBinding SelectionBoxItem}"
+                                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                            Margin="12,8"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Left"/>
+                            <TextBox x:Name="PART_EditableTextBox"
+                                   Style="{x:Null}"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="12,8"
+                                   Focusable="True"
+                                   Background="Transparent"
+                                   Foreground="{StaticResource TextPrimary}"
+                                   Visibility="Hidden"
+                                   IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup"
+                                  Placement="Bottom"
+                                  IsOpen="{TemplateBinding IsDropDownOpen}"
+                                  AllowsTransparency="True"
+                                  Focusable="False"
+                                  PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                                     SnapsToDevicePixels="True"
+                                     MinWidth="{TemplateBinding ActualWidth}"
+                                     MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder"
+                                           Background="{StaticResource AccentBg}"
+                                           BorderThickness="2"
+                                           BorderBrush="{StaticResource GhostOrange}"
+                                           CornerRadius="6">
+                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBox Item Style -->
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Background="{TemplateBinding Background}" 
+                               Padding="{TemplateBinding Padding}"
+                               CornerRadius="4"
+                               Margin="2">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource GhostOrange}"/>
+                                <Setter Property="Foreground" Value="{StaticResource GhostWhite}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource GhostBlue}"/>
+                                <Setter Property="Foreground" Value="{StaticResource GhostWhite}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Pac-Man Chat Bubble Styles -->
+        <Style x:Key="MicBubble" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource GhostYellow}"/>
+            <Setter Property="CornerRadius" Value="20,20,4,20"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="Margin" Value="60,4,12,4"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="MaxWidth" Value="400"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GhostOrange}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#FFD700" Opacity="0.3" ShadowDepth="0" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RemoteBubble" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource AccentBg}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GhostBlue}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="20,20,20,4"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="Margin" Value="12,4,60,4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="MaxWidth" Value="400"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#0066FF" Opacity="0.3" ShadowDepth="0" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Pac-Man AI Suggestion Card Style -->
+        <Style x:Key="SuggestionCard" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource CardBg}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GhostOrange}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="16"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,16"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#FF9500" Opacity="0.4" ShadowDepth="0" BlurRadius="15"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Force Suggestion Button Style -->
+        <Style x:Key="ForceButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="12"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33FF9500"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Message Templates -->
+        <DataTemplate x:Key="MicrophoneMessageTemplate">
+            <Border Style="{StaticResource MicBubble}">
+                <StackPanel>
+                    <TextBlock Text="{Binding DisplayName}" FontSize="11" 
+                              Foreground="#B8860B" FontWeight="SemiBold" 
+                              Margin="0,0,0,4"/>
+                    <TextBlock Text="{Binding Content}" TextWrapping="Wrap" 
+                              FontSize="14" Foreground="#8B4513" FontWeight="Medium"/>
+                        </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SystemMessageTemplate">
+            <Border Style="{StaticResource RemoteBubble}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{Binding DisplayName}" FontSize="11" 
+                                  Foreground="{StaticResource GhostBlue}" FontWeight="SemiBold" 
+                                  Margin="0,0,0,4"/>
+                        <TextBlock Text="{Binding Content}" TextWrapping="Wrap" 
+                                  FontSize="14" Foreground="{StaticResource TextPrimary}" FontWeight="Medium"/>
+                        </StackPanel>
+                    
+                    <!-- Force Suggestion Button -->
+                    <Button Grid.Column="1" Style="{StaticResource ForceButton}"
+                            VerticalAlignment="Top" Margin="8,0,0,0"
+                            Click="OnForceSuggestionClick"
+                            Tag="{Binding}">
+                        <TextBlock Text="🚀" FontSize="16" 
+                                  Foreground="{StaticResource GhostOrange}"/>
+                    </Button>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Template Selector -->
+        <selectors:MessageTemplateSelector x:Key="MessageTemplateSelector"
+                                          MicrophoneTemplate="{StaticResource MicrophoneMessageTemplate}"
+                                          SystemTemplate="{StaticResource SystemMessageTemplate}"
+                                          SuggestionTemplate="{x:Null}"/>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Header -->
+        <Border Background="{StaticResource SecondaryBg}" 
+                Height="80" VerticalAlignment="Top"
+                BorderBrush="{StaticResource GhostOrange}" 
+                BorderThickness="0,0,0,2">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF9500" Opacity="0.2" ShadowDepth="0" BlurRadius="20"/>
+            </Border.Effect>
+            <Grid Margin="30,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Logo/Title -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <!-- Clyde Ghost Logo -->
+                    <Viewbox Width="52" Height="52" Margin="0,0,16,0">
+                        <Canvas Width="100" Height="100">
+                            <!-- Ghost Body -->
+                            <Path Data="M50,20 C70,20 85,35 85,55 L85,85 L75,75 L65,85 L55,75 L45,85 L35,75 L25,85 L15,55 C15,35 30,20 50,20 Z" 
+                                  Fill="{StaticResource GhostOrange}" 
+                                  Stroke="{StaticResource GhostWhite}" 
+                                  StrokeThickness="2"/>
+                            <!-- Left Eye -->
+                            <Ellipse Canvas.Left="30" Canvas.Top="35" Width="12" Height="15" 
+                                    Fill="{StaticResource GhostWhite}"/>
+                            <Ellipse Canvas.Left="32" Canvas.Top="37" Width="8" Height="11" 
+                                    Fill="{StaticResource GhostBlue}"/>
+                            <!-- Right Eye -->
+                            <Ellipse Canvas.Left="58" Canvas.Top="35" Width="12" Height="15" 
+                                    Fill="{StaticResource GhostWhite}"/>
+                            <Ellipse Canvas.Left="60" Canvas.Top="37" Width="8" Height="11" 
+                                    Fill="{StaticResource GhostBlue}"/>
+                        </Canvas>
+                    </Viewbox>
+                    <StackPanel>
+                        <!-- Retro Gaming Style Title -->
+                        <TextBlock Text="CLYDE" FontSize="26" FontWeight="Black" 
+                                  Foreground="{StaticResource GhostOrange}"
+                                  FontFamily="Consolas, 'Courier New', monospace">
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#FF6B00" Opacity="0.6" ShadowDepth="2" BlurRadius="0"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock Text="AI INTERVIEW ASSISTANT" FontSize="10" 
+                                  Foreground="{StaticResource TextSecondary}"
+                                  FontFamily="Consolas, 'Courier New', monospace"
+                                  FontWeight="Bold" Margin="0,2,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!-- Controls -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <ComboBox Name="CaptureMode" Style="{StaticResource FuturisticComboBox}" 
+                             Width="120" Margin="0,0,16,0">
+                        <ComboBoxItem Content="Microphone"/>
+                        <ComboBoxItem Content="System"/>
+                        <ComboBoxItem Content="Both" IsSelected="True"/>
+                    </ComboBox>
+                    
+                    <Button Name="StartButton" Content="▶ START" 
+                           Style="{StaticResource FuturisticButton}" 
+                           Click="OnStartClick" Margin="0,0,12,0"/>
+                    
+                    <Button Name="StopButton" Content="⏹ STOP" 
+                           Style="{StaticResource SecondaryButton}" 
+                           Click="OnStopClick" IsEnabled="False"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Margin="0,80,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel - Chat Transcripts -->
+            <Border Grid.Column="0" Background="{StaticResource SecondaryBg}" 
+                    CornerRadius="0" Margin="0,0,2,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Chat Header -->
+                    <Border Grid.Row="0" Background="{StaticResource AccentBg}" 
+                            Height="60" BorderBrush="{StaticResource GhostBlue}" 
+                            BorderThickness="0,0,0,2">
+                        <Grid Margin="20,0">
+                            <TextBlock Text="💬 CONVERSATION" Style="{StaticResource RetroTitle}"
+                                      Foreground="{StaticResource GhostBlue}" HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Ellipse Name="StatusIndicator" Width="12" Height="12" 
+                                        Fill="#64748B" Margin="0,0,8,0"/>
+                                <TextBlock Name="StatusText" Text="Ready" FontSize="12" 
+                                          Foreground="{StaticResource TextSecondary}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    
+                    <!-- Chat Messages -->
+                    <ScrollViewer Grid.Row="1" Name="ConversationScroll" 
+                                 VerticalScrollBarVisibility="Auto" Padding="0,16">
+                        <ItemsControl Name="ConversationItems"
+                                     ItemTemplateSelector="{StaticResource MessageTemplateSelector}"/>
+                    </ScrollViewer>
+                    
+                    <!-- Chat Footer -->
+                    <Border Grid.Row="2" Background="{StaticResource AccentBg}" 
+                            Padding="20,12" BorderBrush="{StaticResource GhostBlue}" 
+                            BorderThickness="0,2,0,0">
+                        <TextBlock Text="💡 Click 🚀 on any remote message to force AI analysis" 
+                                  FontSize="12" Foreground="{StaticResource TextMuted}" 
+                                  HorizontalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Splitter -->
+            <Border Grid.Column="1" Background="{StaticResource GhostOrange}" 
+                    Opacity="0.5"/>
+
+            <!-- Right Panel - AI Suggestions -->
+            <Border Grid.Column="2" Background="{StaticResource SecondaryBg}" 
+                    CornerRadius="0" Margin="2,0,0,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                    
+                    <!-- Tab Header -->
+                    <Border Grid.Row="0" Background="{StaticResource AccentBg}" 
+                            Height="60" BorderBrush="{StaticResource GhostOrange}" 
+                            BorderThickness="0,0,0,2">
+                        <Grid Margin="20,0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
+                                       VerticalAlignment="Center">
+                                <Button Name="SuggestionsTab" Content="🤖 AI SUGGESTIONS" 
+                                       Style="{StaticResource FuturisticButton}"
+                                       FontSize="12" Padding="12,8" Margin="0,0,8,0"
+                                       Click="OnSuggestionsTabClick"/>
+                                <Button Name="ContactsTab" Content="👥 CONTACTS" 
+                                       Style="{StaticResource SecondaryButton}"
+                                       FontSize="12" Padding="12,8"
+                                       Click="OnContactsTabClick"/>
+                            </StackPanel>
+                            <Button Name="SuggestNowBtn" Content="💡 Suggest Now" Style="{StaticResource SecondaryButton}" 
+                                   FontSize="12" Padding="14,8" HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Click="OnSuggestNowClick"/>
+                        </Grid>
+                    </Border>
+                    
+                    <!-- AI Suggestions Carousel -->
+                    <Grid Grid.Row="1" Name="SuggestionsPanel">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!-- Navigation Header -->
+                        <Border Grid.Row="0" Background="{StaticResource AccentBg}" 
+                               Padding="20,12" BorderBrush="{StaticResource GhostOrange}" 
+                               BorderThickness="0,0,0,1">
+                            <Grid>
+                                <TextBlock Name="SuggestionCounter" Text="No suggestions yet" 
+                                          FontSize="12" Foreground="{StaticResource TextSecondary}"
+                                          FontFamily="Consolas, 'Courier New', monospace"
+                                          HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button Name="PrevButton" Content="◀" Style="{StaticResource SecondaryButton}"
+                                           FontSize="14" Padding="12,8" Margin="0,0,8,0"
+                                           Click="OnPrevSuggestionClick" IsEnabled="False"/>
+                                    <Button Name="NextButton" Content="▶" Style="{StaticResource SecondaryButton}"
+                                           FontSize="14" Padding="12,8"
+                                           Click="OnNextSuggestionClick" IsEnabled="False"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        
+                        <!-- Current Suggestion Card -->
+                        <ScrollViewer Grid.Row="1" Name="SuggestionsScroll" 
+                                     VerticalScrollBarVisibility="Auto" 
+                                     HorizontalScrollBarVisibility="Disabled"
+                                     Padding="20,16">
+                            <Border Name="CurrentSuggestionCard" Style="{StaticResource SuggestionCard}"
+                                   Visibility="Collapsed" MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollViewer}}">
+                                <StackPanel>
+                                    <!-- Question Section -->
+                                    <Border Background="{StaticResource GhostOrange}" 
+                                           CornerRadius="12" Padding="16,12" Margin="0,0,0,20">
+                                        <StackPanel>
+                                            <TextBlock Text="❓ QUESTION" FontSize="12" 
+                                                      Foreground="{StaticResource GhostWhite}" FontWeight="Bold" 
+                                                      FontFamily="Consolas, 'Courier New', monospace"
+                                                      Margin="0,0,0,8"/>
+                                            <TextBlock Name="CurrentQuestion" FontSize="16" 
+                                                      Foreground="{StaticResource GhostWhite}" FontWeight="SemiBold" 
+                                                      TextWrapping="Wrap" LineHeight="22"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Talking Points Section -->
+                                    <Border Background="{StaticResource GhostBlue}" 
+                                           CornerRadius="12" Padding="16,12" Margin="0,0,0,20">
+                                        <StackPanel>
+                                            <TextBlock Text="🎯 TALKING POINTS" FontSize="12" 
+                                                      Foreground="{StaticResource GhostWhite}" FontWeight="Bold" 
+                                                      FontFamily="Consolas, 'Courier New', monospace"
+                                                      Margin="0,0,0,12"/>
+                                            <ItemsControl Name="CurrentTalkingPoints">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding StringFormat='• {0}'}" 
+                                                                  FontSize="14" Foreground="{StaticResource GhostWhite}" 
+                                                                  Margin="0,4" TextWrapping="Wrap" LineHeight="20"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Answer Section -->
+                                    <Border Background="{StaticResource GhostYellow}" 
+                                           CornerRadius="12" Padding="16,12" Margin="0,0,0,16">
+                                        <StackPanel>
+                                            <TextBlock Text="💬 SUGGESTED ANSWER" FontSize="12" 
+                                                      Foreground="#8B4513" FontWeight="Bold" 
+                                                      FontFamily="Consolas, 'Courier New', monospace"
+                                                      Margin="0,0,0,12"/>
+                                            <TextBlock Name="CurrentAnswer" 
+                                                      FontSize="14" Foreground="#8B4513" 
+                                                      TextWrapping="Wrap" LineHeight="22"/>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- Timestamp -->
+                                    <TextBlock Name="CurrentTimestamp" FontSize="11" 
+                                              Foreground="{StaticResource TextMuted}" 
+                                              FontFamily="Consolas, 'Courier New', monospace"
+                                              HorizontalAlignment="Right" Margin="0,8,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </ScrollViewer>
+                        
+                        <!-- Empty State -->
+                        <Border Grid.Row="1" Name="EmptyState" Background="Transparent">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="🤖" FontSize="48" HorizontalAlignment="Center" 
+                                          Foreground="{StaticResource GhostOrange}" Margin="0,0,0,16"/>
+                                <TextBlock Text="AI SUGGESTIONS WILL APPEAR HERE" 
+                                          FontSize="14" FontWeight="Bold"
+                                          FontFamily="Consolas, 'Courier New', monospace"
+                                          Foreground="{StaticResource TextMuted}" 
+                                          HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                                <TextBlock Text="Start a conversation or click 'Suggest Now'" 
+                                          FontSize="12" Foreground="{StaticResource TextMuted}" 
+                                          HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    
+                    <!-- Contacts Viewer -->
+                    <Grid Grid.Row="1" Name="ContactsPanel" Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!-- Contacts List and Details -->
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!-- Contacts List -->
+                            <Border Grid.Column="0" Background="{StaticResource SecondaryBg}" 
+                                   BorderBrush="{StaticResource TechTeal}" BorderThickness="0,0,2,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <!-- Contacts Header -->
+                                    <Border Grid.Row="0" Background="{StaticResource AccentBg}" 
+                                           Padding="20,16" BorderBrush="{StaticResource TechTeal}" 
+                                           BorderThickness="0,0,0,1">
+                                        <TextBlock Text="📋 SAVED CONTACTS" Style="{StaticResource RetroTitle}"
+                                                  Foreground="{StaticResource TechTeal}" 
+                                                  HorizontalAlignment="Center"/>
+                                    </Border>
+                                    
+                                    <!-- Contacts List -->
+                                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" 
+                                                 Padding="12">
+                                        <ItemsControl Name="ContactsList">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="{StaticResource CardBg}" 
+                                                           BorderBrush="{StaticResource TechTeal}" 
+                                                           BorderThickness="1" CornerRadius="8" 
+                                                           Margin="0,0,0,8" Padding="16,12"
+                                                           Cursor="Hand">
+                                                        <Border.InputBindings>
+                                                            <MouseBinding MouseAction="LeftClick" 
+                                                                         Command="{Binding DataContext.SelectContactCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                         CommandParameter="{Binding}"/>
+                                                        </Border.InputBindings>
+                                                        <Border.Style>
+                                                            <Style TargetType="Border">
+                                                                <EventSetter Event="MouseLeftButtonUp" Handler="OnContactClick"/>
+                                                            </Style>
+                                                        </Border.Style>
+                                                        <StackPanel>
+                                                            <TextBlock Text="{Binding Name}" 
+                                                                      FontWeight="Bold" FontSize="14"
+                                                                      Foreground="{StaticResource TextPrimary}"/>
+                                                            <TextBlock Text="{Binding Company}" 
+                                                                      FontSize="12" Margin="0,2,0,0"
+                                                                      Foreground="{StaticResource TextSecondary}"/>
+                                                            <TextBlock Text="{Binding Role}" 
+                                                                      FontSize="11" Margin="0,1,0,0"
+                                                                      Foreground="{StaticResource TextMuted}"/>
+                                                            <TextBlock Text="{Binding MeetingNotes.Count, StringFormat='{}{0} meeting(s)'}" 
+                                                                      FontSize="10" Margin="0,4,0,0"
+                                                                      Foreground="{StaticResource TechTeal}"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Contact Details and Notes -->
+                            <Grid Grid.Column="1" Background="{StaticResource PrimaryBg}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                
+                                <!-- Contact Info Header -->
+                                <Border Grid.Row="0" Name="ContactHeader" Background="{StaticResource AccentBg}" 
+                                       Padding="24,20" BorderBrush="{StaticResource GhostYellow}" 
+                                       BorderThickness="0,0,0,2" Visibility="Collapsed">
+                                    <Grid>
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <TextBlock Name="ContactName" Text="Contact Name" 
+                                                      Style="{StaticResource RetroTitle}" FontSize="20"
+                                                      Foreground="{StaticResource GhostYellow}"/>
+                                            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                                <TextBlock Name="ContactCompany" Text="Company" 
+                                                          FontSize="14" Foreground="{StaticResource TextSecondary}"/>
+                                                <TextBlock Text=" • " FontSize="14" 
+                                                          Foreground="{StaticResource TextMuted}" Margin="8,0"/>
+                                                <TextBlock Name="ContactRole" Text="Role" 
+                                                          FontSize="14" Foreground="{StaticResource TextSecondary}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <Button Name="RefreshContactsBtn" Content="🔄 REFRESH" 
+                                               Style="{StaticResource SecondaryButton}"
+                                               FontSize="11" Padding="12,6" 
+                                               HorizontalAlignment="Right" VerticalAlignment="Top"
+                                               Click="OnRefreshContactsClick"/>
+                                    </Grid>
+                                </Border>
+                                
+                                <!-- Meeting Notes -->
+                                <ScrollViewer Grid.Row="1" Name="NotesScroll" VerticalScrollBarVisibility="Auto" 
+                                             Padding="24,16" Visibility="Collapsed">
+                                    <ItemsControl Name="MeetingNotesList">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="{StaticResource CardBg}" 
+                                                       BorderBrush="{StaticResource GhostBlue}" 
+                                                       BorderThickness="2" CornerRadius="12" 
+                                                       Margin="0,0,0,20" Padding="0">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        
+                                                        <!-- Note Header -->
+                                                        <Border Grid.Row="0" Background="{StaticResource GhostBlue}" 
+                                                               CornerRadius="12,12,0,0" Padding="20,16">
+                                                            <Grid>
+                                                                <StackPanel HorizontalAlignment="Left">
+                                                                    <TextBlock Text="📝 MEETING NOTES" 
+                                                                              FontSize="12" FontWeight="Bold"
+                                                                              FontFamily="Consolas, 'Courier New', monospace"
+                                                                              Foreground="{StaticResource GhostWhite}"/>
+                                                                    <TextBlock Text="{Binding MeetingDate, StringFormat='Meeting Date: {0:MMM dd, yyyy HH:mm}'}" 
+                                                                              FontSize="11" Margin="0,4,0,0"
+                                                                              Foreground="{StaticResource GhostWhite}"/>
+                                                                </StackPanel>
+                                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                                    <Button Content="📋 COPY" Style="{StaticResource SecondaryButton}"
+                                                                           FontSize="10" Padding="8,4" Margin="0,0,8,0"
+                                                                           Click="OnCopyNotesClick" Tag="{Binding}"/>
+                                                                    <Button Content="💾 EXPORT" Style="{StaticResource SecondaryButton}"
+                                                                           FontSize="10" Padding="8,4"
+                                                                           Click="OnExportNotesClick" Tag="{Binding}"/>
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Border>
+                                                        
+                                                        <!-- Note Content -->
+                                                        <Border Grid.Row="1" Background="{StaticResource CardBg}" 
+                                                               Padding="20,16">
+                                                            <TextBlock Text="{Binding GeneratedNotes}" 
+                                                                      FontSize="13" LineHeight="20"
+                                                                      Foreground="{StaticResource TextPrimary}"
+                                                                      TextWrapping="Wrap"
+                                                                      FontFamily="Segoe UI, Arial, sans-serif"/>
+                                                        </Border>
+                                                        
+                                                        <!-- Transcript Preview -->
+                                                        <Border Grid.Row="2" Background="{StaticResource AccentBg}" 
+                                                               CornerRadius="0,0,12,12" Padding="20,12">
+                                                            <Expander Header="📄 View Original Transcript" 
+                                                                     Foreground="{StaticResource TextMuted}"
+                                                                     FontSize="11" FontWeight="Bold">
+                                                                <TextBlock Text="{Binding Transcript}" 
+                                                                          FontSize="11" Margin="0,8,0,0"
+                                                                          Foreground="{StaticResource TextMuted}"
+                                                                          TextWrapping="Wrap" LineHeight="16"
+                                                                          FontFamily="Consolas, 'Courier New', monospace"/>
+                                                            </Expander>
+                                                        </Border>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                                
+                                <!-- Empty State for Contacts -->
+                                <Border Grid.Row="1" Name="ContactsEmptyState">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="👥" FontSize="64" HorizontalAlignment="Center" 
+                                                  Foreground="{StaticResource TechTeal}" Margin="0,0,0,20"/>
+                                        <TextBlock Text="NO CONTACTS YET" 
+                                                  FontSize="18" FontWeight="Bold"
+                                                  FontFamily="Consolas, 'Courier New', monospace"
+                                                  Foreground="{StaticResource TextMuted}" 
+                                                  HorizontalAlignment="Center" Margin="0,0,0,12"/>
+                                        <TextBlock Text="Complete a call and save meeting notes to see contacts here" 
+                                                  FontSize="14" Foreground="{StaticResource TextMuted}" 
+                                                  HorizontalAlignment="Center" TextAlignment="Center"
+                                                  MaxWidth="400" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

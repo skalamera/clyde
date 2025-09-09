@@ -1,0 +1,56 @@
+MOCK INTERVIEW QUESTIONS AND ANSWERS
+
+Resume Walkthrough:
+
+- Internal Revenue Service & National Institutes of Health (2009-2013): I got my start with a student internship at the IRS, then worked at the NIH Help Desk, which gave me a taste of a government and enterprise environment.
+- ICANotes (2013-2014): This was my first full-time role in tech support. I supported Electronic Medical Records software, where I worked with the dev team to communicate bugs and feature requests.
+- Lytx (2014-2016): I moved into a Tier 3 technical support role here. I began handling escalations and using SQL to troubleshoot issues in large databases, which was a great learning experience.
+- 1010data (2016-2019): I was a Customer Experience Manager at a Big Data company, where I was one of the first team members. I was heavily involved in hiring, training, and growing the team, and I built our entire Knowledge Base from the ground up.
+- BuildingLink (2019-2022): I worked as a Lead of Technical Support & Training. My focus was on team management, leading the adoption of a new ticketing system. I also hosted training for clients and helped redesign the company's help site. This is a great example of my startup experience in the SaaS industry.
+- Benchmark Education Company (2022-Present): In my current role, I lead a team of 15 agents, focusing on process improvement and automation. I use custom API integrations to significantly reduce resolution time and leveraged AI-powered analytics to make our first response time much faster. I also created a Power BI Support Operations Hub to bring in data from different sources to give us better insights.
+- Jedana (Spare-time Project): This is a suite of AI tools I've been developing on the side. The company has adopted it for things like automated QA and performance reviews. My certifications in Generative AI and Project Management show my commitment to driving operational excellence outside of work, too.
+
+Sample Interview Questions and Answers
+
+Question 1: What do you use data for?
+Answer 1: I use data for the following:
+ * Spotting Trends Before They Become Problems: I'm constantly watching our ticket data. For example, if I see a sudden spike in tickets about a specific feature or a particular error code, that's a red flag. I'll look at the data to see how many people are affected, which clients are reporting it, and what the common symptoms are. This helps me alert the dev team to a potential bug or an issue with a new release before it becomes a huge wave of customer complaints. It lets us be proactive instead of reactive.
+ * Optimizing Our Workflows: I use data to understand our team's performance. I track things like average resolution time, first-contact resolution rates, and the number of tickets each agent handles. If I notice that a certain type of ticket is taking way longer to resolve than others, I'll dig into that. Maybe it means we need to update our knowledge base with better information, or perhaps a specific agent needs more training on that topic. It's all about finding those friction points in our process and making them smoother.
+ * Understanding Our Customers: I look at customer satisfaction scores (CSAT) and feedback. If we see a dip in our scores, I can cross-reference that with other data—like which agents were involved, what type of issue it was, and how long it took to resolve. This gives me a clear picture of what we're doing right and where we might be falling short. It helps me provide targeted coaching to the team and even identify recurring issues that we need to fix for a better overall customer experience.
+ * Making a Case for New Tools or Resources: When I need to ask for a new tool or more headcount, I don't just go in with a "feeling." I bring the data. For example, if our average response time is increasing, I can show a graph of our ticket volume over time. If our team has a high workload and we're struggling to meet SLAs, I can present the numbers to show exactly how much we're handling and why we need more help. This kind of data-backed request is much more likely to get approved because it's not just an opinion—it's a fact.
+
+Question 2: The job description mentions a strong domain expertise in databases and business intelligence and requires proficiency in SQL and data modeling. How does your experience, particularly at 1010data, align with these qualifications?
+Answer 2: My time at 1010data gave me a great foundation in the world of big data and analytics.
+I also used basic SQL query language to troubleshoot and query large databases.
+To consolidate metrics, I created a Power BI Support Operations Hub that pulls and transforms data from several different sources.
+This helps me analyze data, spot trends, and share actionable insights with other leaders and cross-functional teams.
+
+Question 3: Sigma is looking for a leader who can hire, develop, and mentor a team of support engineers. Describe your approach to building and managing high-performing teams, and provide examples from your resume.
+Answer 3: I'm a big believer in building a strong team culture and providing them with the tools they need to succeed.
+At Benchmark Education, I led a hybrid team of 15 support agents and consistently exceeded our KPIs and SLAs.
+Early in my career at 1010data, I was one of the first team members and I got to help hire, train, and expand the team.
+I also love building things that make my team’s lives easier. I spearheaded the creation of an AI performance review platform that the whole department adopted.
+
+Question 4: The job description emphasizes process improvement and uncovering insights from data. How have you used data and AI to optimize support operations and enhance the customer experience?
+Answer 4: I'm all about using data and technology to make things better.
+Using custom API integrations, I was able to significantly reduce our resolution time.
+I also used AI-powered analytics tools to make our first response time much faster and reduce our average handling time.
+These efforts have really paid off; my team has maintained a CSAT score above 98% every year.
+
+Question 5: Sigma is a fast-paced company with a startup environment. How do you handle working in such an environment, and how do you challenge your team to step outside their comfort zone?
+Answer 5: I really thrive in fast-paced environments, having experience in both smaller startups and larger organizations.
+I think the best way to challenge a team is to empower them. I'm responsible for all our Support applications, and I’m always building new tools and integrations with APIs to automate processes.
+My side project, Jedana, is a great example. I'm developing a suite of AI-powered tools for support analytics, and the company has adopted it to automate our QA and performance reviews.
+This kind of work helps teams go beyond just reacting to issues and get proactive.
+
+Question 6: Tell me about a time you had to troubleshoot.
+
+Answer 6: I can tell you about a time I had to figure out a problem with a customer's computer. It was a classic "it was working yesterday" situation. The customer was a small business owner who suddenly couldn't access a critical program they used for their daily operations. They called in panicked, saying they were completely stuck.
+ The first thing I did was try to get a clear picture of the problem. Instead of just saying, "It's not working," I asked a few simple questions:
+ * "What exactly happens when you try to open the program?"
+ * "Did you notice anything different about your computer or network right before this happened?"
+ * "Are any of your other team members having the same problem?"
+After getting their answers, I realized it wasn't an issue with the program itself. All signs pointed to a network connectivity problem on their end. They could access the internet, but their computer couldn't connect to the server that hosted the application.
+So, I had them check a few things on their side. I walked them through a simple ping test to see if their computer could even see the server. When that failed, I had them reboot their router and modem. When that didn't work, I had them check their firewall settings, because sometimes an update can suddenly block a port.
+Finally, we found the culprit. Their internet service provider had pushed out an update to their router overnight that had changed a specific setting, causing their computer to lose its static IP address. This meant their machine couldn't find the server. We just had to go into the router's settings and re-enter the correct IP address. As soon as we did, the program started working perfectly again, and they were back in business.
+The whole thing was a great reminder that troubleshooting isn't just about knowing the technical stuff; it's about asking the right questions, being patient, and thinking systematically to get to the root of the problem.
